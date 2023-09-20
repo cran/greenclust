@@ -33,7 +33,7 @@
 #'   step had a tie for "winner".
 #' @references Greenacre, M.J. (1988) "Clustering the Rows and Columns of
 #'   a Contingency Table," \emph{Journal of Classification 5}, 39-51.
-#'   \url{https://doi.org/10.1007/BF01901670}
+#'   \doi{10.1007/BF01901670}
 #' @seealso \code{\link{greencut}}, \code{\link{greenplot}},
 #'     \code{\link{assign.cluster}}
 #' @examples
@@ -83,6 +83,11 @@ greenclust <- function(x, correct=FALSE, verbose=FALSE) {
         stop("all row totals must be greater than zero")
     if(sum(apply(x, 2, sum)==0) > 0)
         stop("all column totals must be greater than zero")
+
+    # If elements in x are integer, convert to higher-precision double
+    if (is.integer(x)) {
+        storage.mode(x) <- "double"
+    }
 
     # Make sure chi-squared is not already zero
     suppressWarnings(chi.result <- chisq.test(x, correct=correct))

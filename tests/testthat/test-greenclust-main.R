@@ -45,7 +45,7 @@ test_that("greenclust stops when x has negative row or column sums", {
 })
 
 test_that("greenclust stops when x has an initial chi-squared of zero", {
-    skip_if_not_installed("greenclust", minimum_version=1.1)
+    skip_if_not_installed("greenclust", minimum_version="1.1")
     expect_error(greenclust(matrix(rep(1, 8), ncol=2)),
                  "x already has a chi-squared statistic of zero and cannot be clustered")
 })
@@ -112,4 +112,11 @@ test_that("greenclust correctly handles Yates's correction", {
     m3 <- matrix(c(150, 85, 0, 125), nrow=2)
     suppressWarnings(p <- chisq.test(m3, correct=TRUE)$p.value)
     expect_equal(log(g$p.values[length(g$p.values)]), log(p))
+})
+
+
+test_that("greenclust handles an integer matrix without overflow", {
+    elements <- c(0, 5000, 25000, 10000, 25000, 100000, 35000, 7500)
+    m4 <- matrix(as.integer(elements), ncol=2)
+    expect_silent(greenclust(m4))
 })

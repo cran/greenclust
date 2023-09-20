@@ -1,7 +1,7 @@
 Package: greenclust
 Type: Package
 Title: Combine Categories Using Greenacre's Method
-Version: 1.1.0
+Version: 1.1.1
 Authors@R: person("Jeff", "Jetton", , "jeff.jetton@gmail.com", c("aut", "cre"))
 Description: Implements a method of iteratively collapsing the rows of a
     contingency table, two at a time, by selecting the pair of categories whose
@@ -15,12 +15,11 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 URL: https://github.com/JeffJetton/greenclust
 BugReports: https://github.com/JeffJetton/greenclust/issues
-LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.2.3
 Suggests: testthat, knitr, rmarkdown
 NeedsCompilation: no
-Packaged: 2020-01-10 00:20:48 UTC; jeffjetton
+Packaged: 2023-09-19 18:40:38 UTC; jeffjetton
 Author: Jeff Jetton [aut, cre]
 Maintainer: Jeff Jetton <jeff.jetton@gmail.com>
 Repository: CRAN
-Date/Publication: 2020-01-10 16:50:08 UTC
+Date/Publication: 2023-09-20 00:20:02 UTC
